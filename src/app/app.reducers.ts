@@ -6,7 +6,7 @@ import * as fromFiltroAction from './filter/filter.actions';
 
 export interface AppState {
     todos: Todo[];
-    fitro: fromFiltroAction.filtrosValidos;
+    filtro: fromFiltroAction.filtrosValidos;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
