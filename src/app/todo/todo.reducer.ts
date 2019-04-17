@@ -42,6 +42,8 @@ export function todoReducer(state = estadoInicial, action: fromTodo.Acciones): T
                     completado: action.completado
                 };
             });
+        case fromTodo.BORRAR_ALL_TODO:
+            return state.filter(todoEdit => !todoEdit.completado);
         default:
             return state;
     }

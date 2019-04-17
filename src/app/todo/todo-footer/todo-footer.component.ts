@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as fromFiltro from '../../filter/filter.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
 import { Todo } from '../model/todo.model';
+import * as fromFiltro from '../../filter/filter.actions';
+import * as fromTodo from '../todo.actions';
 
 @Component({
   selector: 'app-todo-footer',
@@ -31,6 +32,11 @@ export class TodoFooterComponent implements OnInit {
 
   contarPendientes(todos: Todo[]) {
     this.pendientes = todos.filter(todo => !todo.completado).length;
+  }
+
+  borrarTodo() {
+    const accion = new fromTodo.BorrarAllTodoAction();
+    this.store.dispatch(accion);
   }
 
 }
